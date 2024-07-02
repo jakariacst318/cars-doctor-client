@@ -17,7 +17,7 @@ const Products = () => {
                 <h1 className="text-4xl font-bold">Browse Our Products</h1>
                 <p className="text-[#737373]">the majority have suffered alteration in some form, by injected humour, or randomised <br /> words which do not look even slightly believable. </p>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7  justify-center">
                 {/* images-1 */}
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">
