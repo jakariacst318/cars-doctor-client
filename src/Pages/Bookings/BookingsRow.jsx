@@ -1,9 +1,9 @@
 
 
-const BookingsRow = ({ booking, handleDelete }) => {
+const BookingsRow = ({ booking, handleDelete, handleBookingConform }) => {
 
 
-    const { img, service, price, date, _id } = booking
+    const { img, service, price, date, _id, status } = booking
 
     // const handleDelete = id => {
     //     Swal.fire({
@@ -37,8 +37,8 @@ const BookingsRow = ({ booking, handleDelete }) => {
 
     return (
         <tr>
-            <th>
-                <button onClick={() => handleDelete(_id)} className="btn btn-circle bg-[#444444] text-white btn-sm hover:bg-[#FF3811]">
+            <th >
+                <button onClick={() => handleDelete(_id)} className="btn btn-circle bg-[#444444] text-white btn-sm hover:bg-[#FF3811] ">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                 </button>
             </th>
@@ -56,7 +56,10 @@ const BookingsRow = ({ booking, handleDelete }) => {
             <td className="font-semibold">${price}</td>
             <td className="font-semibold">{date}</td>
             <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+                {
+                    status === 'confirm' ? <span className="font-bold text-[#008000]">Confirmed</span> :
+                    <button onClick={() => handleBookingConform(_id)} className="btn btn-ghost btn-xs bg-[#FF3811] text-white hover:bg-[#ac250a]">Pending</button>
+                }
             </th>
         </tr>
     );

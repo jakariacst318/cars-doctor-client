@@ -4,7 +4,6 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import BookingsRow from "./BookingsRow";
 import Swal from "sweetalert2";
-import { config } from "localforage";
 
 const Bookings = () => {
     // data load kora
@@ -16,7 +15,7 @@ const Bookings = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setBookings(data))
-    }, [])
+    }, [url])
 
     // bookingsRow data 
     const handleDelete = id => {
@@ -32,7 +31,8 @@ const Bookings = () => {
             if (result.isConfirmed) {
 
                 fetch(`http://localhost:5000/bookings/${id}`, {
-                    method: 'DELETE'
+                    method: 'DELETE',
+
                 })
                     .then(res => res.json())
                     .then(data => {
@@ -43,7 +43,7 @@ const Bookings = () => {
                                 text: "Your file has been deleted.",
                                 icon: "success"
                             });
-                            const remaining = bookings.filter(booking =>booking._id !== id);
+                            const remaining = bookings.filter(booking => booking._id !== id);
                             setBookings(remaining)
                         }
                     })
@@ -51,6 +51,28 @@ const Bookings = () => {
         });
     }
 
+    // update 
+    const handleBookingConform = id => {
+        fetch(`http://localhost:5000/bookings/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ status: 'confirm' })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    // update state
+                    const remaining = bookings.filter(booking => booking._id !== id);
+                    const updated = bookings.find(booking => booking._id === id);
+                    updated.status = 'confirm'
+                    const newBookings = [updated, ...remaining];
+                    setBookings(newBookings)
+                }
+            })
+    }
 
     return (
         <div className="mb-20">
@@ -75,12 +97,12 @@ const Bookings = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* row 1 */}
                         {
                             bookings.map(booking => <BookingsRow
                                 key={booking._id}
                                 booking={booking}
                                 handleDelete={handleDelete}
+                                handleBookingConform={handleBookingConform}
                             ></BookingsRow>)
                         }
                     </tbody>
