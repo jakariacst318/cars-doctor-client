@@ -56,10 +56,10 @@ const CheckOut = () => {
     return (
         <div >
             {/* <img src={checkout} alt="" /> */}
-            <div className="card  bg-base-100 shadow-xl image-full">
+            <div className="card p-3 bg-base-100 shadow-xl image-full">
                 <figure><img src={checkout} alt="photo" /></figure>
                 <div className="card-body">
-                    <h2 className="card-title text-4xl text-white ms-20 pt-20 ">Check Out</h2>
+                    <h2 className="card-title text-xl md:text-4xl text-white lg:ms-20 lg:pt-20 ">Check Out</h2>
                    
                     
                 </div>
