@@ -9,7 +9,7 @@ const Services = () => {
         fetch('http://localhost:5000/services')
         .then(res => res.json())
         .then(data => setServices(data))
-    })
+    },[])
     return (
         <div>
             <div className="space-y-5 text-center mt-10">

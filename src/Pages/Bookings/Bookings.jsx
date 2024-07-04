@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import BookingsRow from "./BookingsRow";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const Bookings = () => {
     // data load kora
@@ -12,9 +13,21 @@ const Bookings = () => {
 
     const url = `http://localhost:5000/bookings?email=${user?.email}`;
     useEffect(() => {
-        fetch(url)
+
+        // new axios us kore
+        // axios.get(url, { withCredentials: true })
+        //     .then(res => {
+        //         setBookings(res.data)
+        //     })
+
+        fetch(url, { credentials: 'include' })
             .then(res => res.json())
             .then(data => setBookings(data))
+
+        // old 
+        // fetch(url)
+        // .then(res => res.json())
+        // .then(data => setBookings(data))
     }, [url])
 
     // bookingsRow data 
@@ -84,6 +97,7 @@ const Bookings = () => {
 
                 </div>
             </div>
+            <h2 className="text-5xl text-red-500"> booooooook! {bookings.length}</h2>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     {/* head */}
@@ -97,8 +111,8 @@ const Bookings = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {
-                            bookings.map(booking => <BookingsRow
+                        { 
+                            bookings && bookings?.map(booking => <BookingsRow
                                 key={booking._id}
                                 booking={booking}
                                 handleDelete={handleDelete}

@@ -1,10 +1,13 @@
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { Circles } from "react-loader-spinner";
 
 const PrivetRoute = ({children}) => {
     const {user , loading} = useContext(AuthContext)
+
+    // path location 
+    const location = useLocation();
 
     if(loading){
         return  (<Circles
@@ -21,7 +24,7 @@ const PrivetRoute = ({children}) => {
     if(user?.email){
         return children
     }
-    return ( <Navigate to='/login' replace></Navigate>
+    return ( <Navigate state={location.pathname} to='/login' replace></Navigate>
     );
 };
 

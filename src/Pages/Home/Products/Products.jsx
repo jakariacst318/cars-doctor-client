@@ -19,7 +19,7 @@ const Products = () => {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7  justify-center">
                 {/* images-1 */}
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card  bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">
                         <img src={img1} alt="images" className="rounded-xl" />
                     </figure>
@@ -33,7 +33,7 @@ const Products = () => {
                     </div>
                 </div>
                 {/* images-2 */}
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card  bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">
                         <img src={img2} alt="images" className="rounded-xl" />
                     </figure>
@@ -47,7 +47,7 @@ const Products = () => {
                     </div>
                 </div>
                 {/* images-3 */}
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card  bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">
                         <img src={img3} alt="images" className="rounded-xl" />
                     </figure>
@@ -61,7 +61,7 @@ const Products = () => {
                     </div>
                 </div>
                 {/* images-4 */}
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card  bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">
                         <img src={img4} alt="images" className="rounded-xl" />
                     </figure>
@@ -75,7 +75,7 @@ const Products = () => {
                     </div>
                 </div>
                 {/* images-5 */}
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card  bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">
                         <img src={img5} alt="images" className="rounded-xl" />
                     </figure>
@@ -89,7 +89,7 @@ const Products = () => {
                     </div>
                 </div>
                 {/* images-6 */}
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card  bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">
                         <img src={img6} alt="images" className="rounded-xl" />
                     </figure>

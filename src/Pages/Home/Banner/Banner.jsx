@@ -16,13 +16,14 @@ const Banner = () => {
                     <img src={banner1} className="w-full" />
                     {/* text */}
                     <div className="absolute flex items-center h-full left-0 top-0  bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] ">
-                        <div className="text-white space-y-7 lg:pl-20  pl-10">
-                            <h2 className="text-5xl  font-bold">Affordable <br /> Price For Car <br />Servicing</h2>
+                        <div className="text-white lg:space-y-7 space-x-3 lg:pl-20  pl-10">
+                            <h2 className="lg:text-5xl  text-3xl font-bold">Affordable <br /> Price For Car <br />Servicing</h2>
                             <p>There are many variations of passages of  available, but <br /> the majority have suffered alteration in some form</p>
                             <div>
                                 <button className="btn text-white bg-[#FF3811] hover:bg-[#d83312] border-0 mr-5">Discover More</button>
 
-                                <button className="btn btn-outline text-white border-white hover:bg-[#FF3811] hover:border-0 ">Latest Project</button>
+                                <button className="btn btn-outline text-white border-white 
+                                 hover:border-0 ">Latest Project</button>
                             </div>
                         </div>
                     </div>
