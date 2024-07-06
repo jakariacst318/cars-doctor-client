@@ -4,15 +4,28 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import BookingsRow from "./BookingsRow";
 import Swal from "sweetalert2";
-import axios from "axios";
+// import axios from "axios";
+import useAxiousSecure from "../../hook/useAxiousSecure";
 
 const Bookings = () => {
     // data load kora
     const { user } = useContext(AuthContext)
     const [bookings, setBookings] = useState([]);
+    const axiosSecure = useAxiousSecure();
 
-    const url = `http://localhost:5000/bookings?email=${user?.email}`;
+    // const url = `http://localhost:5000/bookings?email=${user?.email}`;
+
+    // hook us kore
+    const url = `/bookings?email=${user?.email}`;
     useEffect(() => {
+
+
+        // hook us kore
+
+        axiosSecure.get(url)
+        .then(res => setBookings(res.data))
+
+
 
         // new axios us kore
         // axios.get(url, { withCredentials: true })
@@ -20,15 +33,16 @@ const Bookings = () => {
         //         setBookings(res.data)
         //     })
 
-        fetch(url, { credentials: 'include' })
-            .then(res => res.json())
-            .then(data => setBookings(data))
+            // Support Session
+        // fetch(url, { credentials: 'include' })
+        //     .then(res => res.json())
+        //     .then(data => setBookings(data))
 
         // old 
         // fetch(url)
         // .then(res => res.json())
         // .then(data => setBookings(data))
-    }, [url])
+    }, [url, axiosSecure])
 
     // bookingsRow data 
     const handleDelete = id => {

@@ -26,7 +26,7 @@ const Login = () => {
                 const loggedInUser = result.user;
                 console.log(loggedInUser)
                 const user = { email }
-                // navigate click location update
+                // navigate click location update old
                 // navigate(location?.state ? location?.state : '/')
 
 
@@ -35,7 +35,7 @@ const Login = () => {
                     .then(res => {
                         console.log(res.data)
                         if (res.data.success) {
-                            // navigate click location niye jabe old
+                            // navigate click location niye jabe new
                             navigate(location?.state ? location?.state : '/')
                         }
                     })
