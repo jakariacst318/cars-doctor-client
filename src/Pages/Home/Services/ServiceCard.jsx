@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 const ServiceCard = ({ service }) => {
 
     const {_id, title, img, price } = service
+    console.log('price asole tmi ki seta dekhte hbe:', typeof price)
+    
     return (
         <div>
             <div className="card bg-base-100 shadow-xl h-80">

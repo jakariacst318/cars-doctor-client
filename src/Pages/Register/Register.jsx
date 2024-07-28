@@ -14,15 +14,15 @@ const Register = () => {
     const handleRegister = event => {
         event.preventDefault()
         const from = event.target;
-        const name = from.name.value;
+        // const name = from.name.value;
         const email = from.email.value;
         const password = from.password.value;
-        console.log(name, email, password)
+        // console.log(name, email, password)
 
         createUser(email, password)
             .then(result => {
                 const user = result.user
-                console.log(user)
+                // console.log(user)
             })
             .catch(error => console.log(error.message))
             

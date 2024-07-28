@@ -17,7 +17,7 @@ const BookingsRow = ({ booking, handleDelete, handleBookingConform }) => {
     //     }).then((result) => {
     //         if (result.isConfirmed) {
 
-    //             fetch(`http://localhost:5000/bookings/${id}`, {
+    //             fetch(`https://cars-doctor-server-sigma.vercel.app/bookings/${id}`, {
     //                 method: 'DELETE'
     //             })
     //                 .then(res => res.json())

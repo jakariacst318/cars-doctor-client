@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     element: <Main></Main>,
     children: [
       {
-        path: '',
+        path: '/',
         element: <Home></Home>
       },
       {
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       {
         path: 'checkout/:id',
         element: <PrivetRoute> <CheckOut></CheckOut> </PrivetRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+        loader: ({ params }) => fetch(`https://cars-doctor-server-sigma.vercel.app/services/${params.id}`)
       },
       {
         path: 'bookings',

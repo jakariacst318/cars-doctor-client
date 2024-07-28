@@ -22,18 +22,18 @@ const Login = () => {
         const password = from.password.value;
         // console.log(email, password)
         signIn(email, password)
-            .then(result => {
-                const loggedInUser = result.user;
-                console.log(loggedInUser)
+            .then(() => {
+                // const loggedInUser = result.user;
+                // console.log(loggedInUser)
                 const user = { email }
                 // navigate click location update old
                 // navigate(location?.state ? location?.state : '/')
 
 
                 // get access token
-                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                axios.post('https://cars-doctor-server-sigma.vercel.app/jwt', user, { withCredentials: true })
                     .then(res => {
-                        console.log(res.data)
+                        // console.log(res.data)
                         if (res.data.success) {
                             // navigate click location niye jabe new
                             navigate(location?.state ? location?.state : '/')
